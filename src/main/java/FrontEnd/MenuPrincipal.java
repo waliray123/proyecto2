@@ -5,6 +5,21 @@
  */
 package FrontEnd;
 
+import BoardPackage.Board;
+import ExceptionsGame.ExceptionGame;
+import GamePackage.Game;
+import GamePackage.controlGame;
+import RankingPackage.rankingFrame;
+import java.awt.HeadlessException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
+import static javax.swing.JFileChooser.APPROVE_OPTION;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+
+
 /**
  *
  * @author user-ubunto
@@ -16,6 +31,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
      */
     public MenuPrincipal() {
         initComponents();
+      //  ImageIcon imagenLogo = new ImageIcon(getClass().getResource("/Images/Dados.png"));
+        
     }
 
     /**
@@ -27,21 +44,188 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        MenuBar1 = new javax.swing.JMenuBar();
+        MenuJuego = new javax.swing.JMenu();
+        MenuCrear = new javax.swing.JMenuItem();
+        MenuNuevo = new javax.swing.JMenuItem();
+        MenuLoad = new javax.swing.JMenuItem();
+        MenuEdit = new javax.swing.JMenu();
+        MenuItemEditBoard = new javax.swing.JMenuItem();
+        MenuRanking = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        MenuHelp = new javax.swing.JMenu();
+        About = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        MenuBar1.setBorder(new javax.swing.border.MatteBorder(null));
+        MenuBar1.setFont(new java.awt.Font("Lato", 0, 20)); // NOI18N
+
+        MenuJuego.setText("Juego");
+        MenuJuego.setFont(new java.awt.Font("DejaVu Sans", 0, 15)); // NOI18N
+
+        MenuCrear.setText("Crear tablero");
+        MenuCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuCrearActionPerformed(evt);
+            }
+        });
+        MenuJuego.add(MenuCrear);
+
+        MenuNuevo.setText("Nuevo");
+        MenuNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuNuevoActionPerformed(evt);
+            }
+        });
+        MenuJuego.add(MenuNuevo);
+
+        MenuLoad.setText("Cargar");
+        MenuLoad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuLoadActionPerformed(evt);
+            }
+        });
+        MenuJuego.add(MenuLoad);
+
+        MenuBar1.add(MenuJuego);
+
+        MenuEdit.setText("Editar");
+        MenuEdit.setFont(new java.awt.Font("DejaVu Sans", 0, 15)); // NOI18N
+
+        MenuItemEditBoard.setText("Editar Tablero");
+        MenuItemEditBoard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuItemEditBoardActionPerformed(evt);
+            }
+        });
+        MenuEdit.add(MenuItemEditBoard);
+
+        MenuBar1.add(MenuEdit);
+
+        MenuRanking.setText("Ranking");
+        MenuRanking.setFont(new java.awt.Font("DejaVu Sans", 0, 15)); // NOI18N
+
+        jMenuItem1.setText("Ir al Ranking");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        MenuRanking.add(jMenuItem1);
+
+        MenuBar1.add(MenuRanking);
+
+        MenuHelp.setText("Ayuda");
+        MenuHelp.setFont(new java.awt.Font("DejaVu Sans", 0, 15)); // NOI18N
+        MenuHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuHelpActionPerformed(evt);
+            }
+        });
+
+        About.setText("Acerca de");
+        About.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AboutActionPerformed(evt);
+            }
+        });
+        MenuHelp.add(About);
+
+        MenuBar1.add(MenuHelp);
+
+        setJMenuBar(MenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 496, Short.MAX_VALUE)
+            .addGap(0, 591, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 388, Short.MAX_VALUE)
+            .addGap(0, 352, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void MenuNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuNuevoActionPerformed
+        NewGameFrame newGame = new NewGameFrame();
+        newGame.setVisible(true);
+    }//GEN-LAST:event_MenuNuevoActionPerformed
+
+    private void MenuHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuHelpActionPerformed
+        //this.Panel1.setVisible(true);     
+    }//GEN-LAST:event_MenuHelpActionPerformed
+
+    private void AboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutActionPerformed
+        AboutFrame aboutInfo = new AboutFrame();
+        aboutInfo.setVisible(true);        
+    }//GEN-LAST:event_AboutActionPerformed
+
+    private void MenuCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuCrearActionPerformed
+        CreateGameFrame createGameFrame = new CreateGameFrame(null);
+        createGameFrame.setVisible(true);
+    }//GEN-LAST:event_MenuCrearActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        rankingFrame rankingframe = new rankingFrame();
+        rankingframe.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void MenuLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuLoadActionPerformed
+        
+        try {            
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Archivo de Juego", "game"));
+            fileChooser.setAcceptAllFileFilterUsed(false);
+            int seleccion = fileChooser.showOpenDialog(this);
+            if (seleccion == APPROVE_OPTION) {
+                fileManager controlLoad = new fileManager();
+                controlGame control;
+                control = controlLoad.loadControlGame(fileChooser.getSelectedFile().getPath());
+                int timeLimit = control.getTimer();  
+                int time = 0;
+                GameFrame gameframe;
+                if (timeLimit == -1) {
+                    time = control.getTime();
+                    gameframe = new GameFrame(control, 0,time);
+                }else{
+                    gameframe = new GameFrame(control, timeLimit,0);
+                }                 
+                gameframe.setVisible(true);                
+//                this.game.setGamePlayed(controlLoad.leerJugadores(fileChooser.getSelectedFile().getPath()));
+            } 
+        } catch (HeadlessException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Info", JOptionPane.ERROR_MESSAGE);
+        } catch (ExceptionGame ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }//GEN-LAST:event_MenuLoadActionPerformed
+
+    private void MenuItemEditBoardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemEditBoardActionPerformed
+        try {
+            fileManager controlLoad = new fileManager();
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Archivo de Juego", "board"));
+            fileChooser.setAcceptAllFileFilterUsed(false);
+            int seleccion = fileChooser.showOpenDialog(this);
+            
+            if (seleccion == APPROVE_OPTION) {
+                Game gameplayed;
+                gameplayed = controlLoad.readBoard(fileChooser.getSelectedFile().getPath());                
+                CreateGameFrame gameEdit = new CreateGameFrame(gameplayed);
+                gameEdit.setVisible(true);                
+            } 
+        } catch (HeadlessException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Info", JOptionPane.ERROR_MESSAGE);
+        } catch (ExceptionGame ex) {
+            Logger.getLogger(NewGameFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }                
+    }//GEN-LAST:event_MenuItemEditBoardActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +263,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem About;
+    private javax.swing.JMenuBar MenuBar1;
+    private javax.swing.JMenuItem MenuCrear;
+    private javax.swing.JMenu MenuEdit;
+    private javax.swing.JMenu MenuHelp;
+    private javax.swing.JMenuItem MenuItemEditBoard;
+    private javax.swing.JMenu MenuJuego;
+    private javax.swing.JMenuItem MenuLoad;
+    private javax.swing.JMenuItem MenuNuevo;
+    private javax.swing.JMenu MenuRanking;
+    private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables
 }

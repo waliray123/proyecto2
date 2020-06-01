@@ -3,19 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.proyecto2;
+package CardsPackage;
 
 /**
  *
  * @author user-ubunto
  */
-public class Main {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+public class CardGoJail extends Card{
+    
+    public CardGoJail(String description, String name, int copies) {
+        super(description, name, copies);
     }
     
 }

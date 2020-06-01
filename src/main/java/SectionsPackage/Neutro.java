@@ -1,0 +1,20 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package SectionsPackage;
+
+/**
+ *
+ * @author user-ubunto
+ */
+public class Neutro extends Section{
+
+    public Neutro(int rowposition, int columnPosition) {
+        super(rowposition, columnPosition);
+    }
+
+    
+    
+}
